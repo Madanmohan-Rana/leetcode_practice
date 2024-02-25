@@ -31,14 +31,21 @@ public:
         // return -1;
         
         //sort and check if two adjacent el are equal -> t.c=O(nlogn) s.c=O(1)
-        sort(nums.begin(),nums.end());
-        for(int i=0;i<nums.size()-1;i++)
+        // sort(nums.begin(),nums.end());
+        // for(int i=0;i<nums.size()-1;i++)
+        // {
+        //     if(nums[i]==nums[i+1])
+        //     {
+        //         return nums[i];
+        //     }
+        // }
+        // return -1;
+        
+        //single pass -> t.c=O(n) s.c=O(1) 
+        while(nums[0] != nums[nums[0]])
         {
-            if(nums[i]==nums[i+1])
-            {
-                return nums[i];
-            }
+            swap(nums[0],nums[nums[0]]);
         }
-        return -1;
+        return nums[0];
     }
 };
