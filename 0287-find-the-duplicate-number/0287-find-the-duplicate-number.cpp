@@ -16,16 +16,27 @@ public:
         // return -1;
         
         //mapping -> t.c=O(n) s.c=O(n)
-        unordered_map<int,int>mpp;
-        for(int i=0;i<nums.size();i++)
+        // unordered_map<int,int>mpp;
+        // for(int i=0;i<nums.size();i++)
+        // {
+        //     mpp[nums[i]]++;
+        // }
+        // for(auto it:mpp)
+        // {
+        //     if(it.second>1)
+        //     {
+        //         return it.first;
+        //     }
+        // }
+        // return -1;
+        
+        //sort and check if two adjacent el are equal
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size()-1;i++)
         {
-            mpp[nums[i]]++;
-        }
-        for(auto it:mpp)
-        {
-            if(it.second>1)
+            if(nums[i]==nums[i+1])
             {
-                return it.first;
+                return nums[i];
             }
         }
         return -1;
