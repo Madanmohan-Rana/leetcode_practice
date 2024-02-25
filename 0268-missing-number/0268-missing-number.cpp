@@ -1,6 +1,16 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
+        
+        //sorting method -> t.c=O(nlogn)
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++)
+        {
+            if((nums[i]-i)!=0)
+            {
+                return i;
+            }
+        }
         //with mapping -> t.c=O(n)+O(n)     s.c=O(n)
         // unordered_map<int,int>mpp;
         // for(int i=0;i<nums.size();i++)
@@ -17,13 +27,14 @@ public:
         // return -1;
         
         //using sum -> t.c=O(n) s.c=O(1)
-        int n=nums.size();
-        int total_sum=(n*(n+1))/2;
-        int array_sum=0;
-        for(int i=0;i<nums.size();i++)
-        {
-            array_sum+=nums[i];
-        }
-        return (total_sum-array_sum);
+        // int n=nums.size();
+        // int total_sum=(n*(n+1))/2;
+        // int array_sum=0;
+        // for(int i=0;i<nums.size();i++)
+        // {
+        //     array_sum+=nums[i];
+        // }
+        // return (total_sum-array_sum);
+        return nums.size();
     }
 };
