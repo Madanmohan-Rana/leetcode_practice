@@ -2,40 +2,64 @@ class Solution {
 public:
     void sortColors(vector<int>& nums) {
         //inbuilt function -> )O(nlogn)
-        sort(nums.begin(),nums.end());
+        //sort(nums.begin(),nums.end());
         
-        //counting method
-        vector<int>ans(nums.size());
-        int zero=0;
-        int first=0;
-        int second=0;
-        for(int i=0;i<nums.size();i++)
+        //counting method -> t.c = O(n)
+        // int zero=0;
+        // int first=0;
+        // int second=0;
+        // for(int i=0;i<nums.size();i++)
+        // {
+        //     if(nums[i]==0)
+        //     {
+        //         zero++;
+        //     }
+        //     else if(nums[i]==1)
+        //     {
+        //         first++;
+        //     }
+        //     else
+        //     {
+        //         second++;
+        //     }
+        // }
+        // int idx=0;
+        // while(zero--)
+        // {
+        //     nums[idx++]=0;
+        // }
+        // while(first--)
+        // {
+        //     nums[idx++]=1;
+        // }
+        // while(second--)
+        // {
+        //     nums[idx++]=2;
+        // }
+        
+        
+        //dutch national flag algo -> 
+        
+        int l=0;
+        int m=0;
+        int h=nums.size()-1;
+        while(m<=h)
         {
-            if(nums[i]==0)
+            if(nums[m]==1)
             {
-                zero++;
+                m++;
             }
-            else if(nums[i]==1)
+            else if(nums[m]==0)
             {
-                first++;
+                swap(nums[l],nums[m]);
+                m++;
+                l++;
             }
             else
             {
-                second++;
+                swap(nums[m],nums[h]);
+                h--;
             }
-        }
-        int idx=0;
-        while(zero--)
-        {
-            nums[idx++]=0;
-        }
-        while(first--)
-        {
-            nums[idx++]=1;
-        }
-        while(second--)
-        {
-            nums[idx++]=2;
         }
         
     }
