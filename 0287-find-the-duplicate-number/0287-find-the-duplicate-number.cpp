@@ -2,6 +2,7 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         //double for loop -> O(n2)
+        
         // for(int i=0;i<nums.size()-1;i++)
         // {
         //     for(int j=i+1;j<nums.size();j++)
@@ -14,7 +15,7 @@ public:
         // }
         // return -1;
         
-        //mapping
+        //mapping -> t.c=O(n) s.c=O(n)
         unordered_map<int,int>mpp;
         for(int i=0;i<nums.size();i++)
         {
